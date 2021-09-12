@@ -11,13 +11,13 @@
         <!--Minhas VIagens-->
         <scene sceneID="Rc6-cr-mYu">
             <objects>
-                <tableViewController id="HGb-4i-kVU" sceneMemberID="viewController">
+                <tableViewController id="HGb-4i-kVU" customClass="LocaisViagemViewController" customModule="Minhas_Viagens2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xyq-3B-MMU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5rc-HW-sVQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="celulaReuso" id="5rc-HW-sVQ">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rc-HW-sVQ" id="xfJ-Rg-Ku0">
@@ -35,7 +35,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UfV-nL-cSH">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="gIc-ga-wND" kind="show" id="bCH-eo-LtW"/>
+                                <segue destination="gIc-ga-wND" kind="show" id="ADw-OX-FrE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -52,24 +52,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kHY-8V-BaS">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lkV-Du-Ucv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ILN-V1-XMB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kHY-8V-BaS" firstAttribute="leading" secondItem="ILN-V1-XMB" secondAttribute="leading" id="5Xs-YK-hhN"/>
-                            <constraint firstItem="ILN-V1-XMB" firstAttribute="trailing" secondItem="kHY-8V-BaS" secondAttribute="trailing" id="KHs-LC-Dau"/>
-                            <constraint firstItem="kHY-8V-BaS" firstAttribute="top" secondItem="ILN-V1-XMB" secondAttribute="top" id="OhN-Py-Xr3"/>
-                            <constraint firstItem="kHY-8V-BaS" firstAttribute="bottom" secondItem="ILN-V1-XMB" secondAttribute="bottom" id="QFQ-TU-KQP"/>
+                            <constraint firstItem="lkV-Du-Ucv" firstAttribute="bottom" secondItem="ILN-V1-XMB" secondAttribute="bottom" id="1nF-pn-SXg"/>
+                            <constraint firstItem="lkV-Du-Ucv" firstAttribute="trailing" secondItem="ILN-V1-XMB" secondAttribute="trailing" id="2xN-4Q-AIp"/>
+                            <constraint firstItem="lkV-Du-Ucv" firstAttribute="leading" secondItem="ILN-V1-XMB" secondAttribute="leading" id="Spo-H2-T8j"/>
+                            <constraint firstItem="lkV-Du-Ucv" firstAttribute="top" secondItem="ILN-V1-XMB" secondAttribute="top" id="doY-ve-xDh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="XTo-6K-SSh"/>
+                    <connections>
+                        <outlet property="mapa" destination="lkV-Du-Ucv" id="Ufu-gE-V1V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y96-XR-BGJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353.6231884057972" y="106.47321428571428"/>
+            <point key="canvasLocation" x="1470" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qc1-kN-ad8">

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//Classe responsável por organizar os locais salvos do mapa na tableview.
 class LocaisViagemViewController: UITableViewController {
     
     var locaisViagens: [String] = ["Coliseu", "Torre Eifell", "Cristo Redentor"]
@@ -28,6 +28,17 @@ class LocaisViagemViewController: UITableViewController {
     
     //Método responsável por montar e exibir a célula
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        //recuperando índice do array
+        let viagem = locaisViagens [ indexPath.row ]
+        //montando a célula
+        let celula = tableView.dequeueReusableCell(withIdentifier: "celulaReuso", for: indexPath)
+        
+        //configura o valor dentro da célula
+        celula.textLabel?.text = viagem
+        
+        
+        return celula
+        
     }
+
 }

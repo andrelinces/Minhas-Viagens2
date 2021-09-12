@@ -17,6 +17,7 @@
 		D324E4E326EE37550005F3C3 /* Minhas_Viagens2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324E4E226EE37550005F3C3 /* Minhas_Viagens2Tests.swift */; };
 		D324E4EE26EE37550005F3C3 /* Minhas_Viagens2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324E4ED26EE37550005F3C3 /* Minhas_Viagens2UITests.swift */; };
 		D324E4FE26EE44FC0005F3C3 /* LocaisViagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324E4FD26EE44FC0005F3C3 /* LocaisViagemViewController.swift */; };
+		D324E50026EE94340005F3C3 /* ArmazenamentoDados.swift in Sources */ = {isa = PBXBuildFile; fileRef = D324E4FF26EE94340005F3C3 /* ArmazenamentoDados.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D324E4ED26EE37550005F3C3 /* Minhas_Viagens2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minhas_Viagens2UITests.swift; sourceTree = "<group>"; };
 		D324E4EF26EE37550005F3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D324E4FD26EE44FC0005F3C3 /* LocaisViagemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaisViagemViewController.swift; sourceTree = "<group>"; };
+		D324E4FF26EE94340005F3C3 /* ArmazenamentoDados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmazenamentoDados.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,9 @@
 				D324E4C826EE37540005F3C3 /* AppDelegate.swift */,
 				D324E4CA26EE37540005F3C3 /* SceneDelegate.swift */,
 				D324E4CC26EE37540005F3C3 /* ViewController.swift */,
-				D324E4CE26EE37540005F3C3 /* Main.storyboard */,
+				D324E4FF26EE94340005F3C3 /* ArmazenamentoDados.swift */,
 				D324E4FD26EE44FC0005F3C3 /* LocaisViagemViewController.swift */,
+				D324E4CE26EE37540005F3C3 /* Main.storyboard */,
 				D324E4D426EE37550005F3C3 /* Assets.xcassets */,
 				D324E4D626EE37550005F3C3 /* LaunchScreen.storyboard */,
 				D324E4D926EE37550005F3C3 /* Info.plist */,
@@ -268,6 +271,7 @@
 				D324E4C926EE37540005F3C3 /* AppDelegate.swift in Sources */,
 				D324E4D326EE37540005F3C3 /* Minhas_Viagens2.xcdatamodeld in Sources */,
 				D324E4FE26EE44FC0005F3C3 /* LocaisViagemViewController.swift in Sources */,
+				D324E50026EE94340005F3C3 /* ArmazenamentoDados.swift in Sources */,
 				D324E4CB26EE37540005F3C3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
