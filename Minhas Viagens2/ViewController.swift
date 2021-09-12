@@ -13,11 +13,28 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapa: MKMapView!
     //instanciando objeto gerenciadorLocalizacao para atualizar a localização do mapa
     var gerenciadorLocalizacao = CLLocationManager()
+    var viagem:  Dictionary<String, String> = [:]
+    var indiceSelecionado: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //teste para verificar o índice clicado da tableview, para diferenciar do clique no adicionar.
+        //print( indiceSelecionado )
         
-        configuraGerenciadorLocalizacao()
+        if let indice = indiceSelecionado{
+            
+            if indice == -1 {//Adicionando nova localização
+                
+                configuraGerenciadorLocalizacao()
+                
+            }else{//Lista localização salva.
+                
+                exibirAnotacao(  viagem: viagem)
+                
+            }
+            
+        }
+        
         
         //Reconhecendo o toque pressionado do usuário na tela.
         let reconhecedorGesto = UILongPressGestureRecognizer(target: self, action: #selector( ViewController.marcar(gesture:) ))
@@ -26,6 +43,72 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapa.addGestureRecognizer( reconhecedorGesto )
         
     }
+    //Exibe o localização do usuário atualizada
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let local = locations.last!
+        
+        //Exibe o local salvo na tableview.
+        
+        let localizacao = CLLocationCoordinate2DMake(local.coordinate.latitude,  local.coordinate.longitude)
+        
+        let areaVisualizacao = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let regiao: MKCoordinateRegion = MKCoordinateRegion(center: localizacao, span: areaVisualizacao)
+        
+        self.mapa.setRegion(regiao, animated: true)
+        
+    }
+    
+    func exibirLocal( latitude: Double, longitude: Double ){
+        
+        let localizacao = CLLocationCoordinate2DMake(latitude, longitude)
+        
+        let areaVisualizacao = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let regiao: MKCoordinateRegion = MKCoordinateRegion(center: localizacao, span: areaVisualizacao)
+        
+        self.mapa.setRegion(regiao, animated: true)
+        
+    }
+    
+    //Exibe a anotacao com dados do endereço
+    func exibirAnotacao( viagem: Dictionary<String, String> ){
+        
+        //testa se o item salvo tem o local, latitude e longitude recuperados
+        
+        if let localViagem = viagem ["local"]{
+            
+            if let latitudeS = viagem ["latitude"]{
+                
+                if let longitudeS = viagem ["longitude"]{
+                    
+                    if let latitude = Double (latitudeS){
+                        
+                        if let longitude = Double (longitudeS){
+                            
+                            //Exibe a anotação
+                            let anotacao = MKPointAnnotation()
+                            anotacao.coordinate.latitude = latitude
+                            anotacao.coordinate.longitude = longitude
+                            anotacao.title = localViagem
+                            //anotacao.subtitle = "Estive aqui"
+                            
+                            self.mapa.addAnnotation(anotacao)
+                            
+                            //Exibe o local salvo na tableview.
+                            
+                            exibirLocal(latitude: latitude, longitude: longitude)
+                             
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
     
     @objc func marcar ( gesture: UIGestureRecognizer ){
         //Tratando o toque na tela para capturar apenas uma marcação.
@@ -60,25 +143,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                                 //print("Endereco : \(endereco)")
                             }
                             
-                            
                         }
                         
                     }
                     
                     //Salvar dados no dispositivo
                     
+                    self.viagem = ["local": localCompleto, "latitude": String(coordenadas.latitude) , "longitude": String(coordenadas.longitude)]
+                    ArmazenamentoDados().salvar(viagem: self.viagem)
                     
+                    //testando com print se os dados estão sendo salvos e listados corretamente.
+                    //print( ArmazenamentoDados().listarViagem() )
                     
                     //Agora que já possui as coordenadas, vamos exibir o pontoSelecionado.
                     
                     //Exibe a anotação com dados do endereço
-                    let anotacao = MKPointAnnotation()
-                    anotacao.coordinate.latitude = coordenadas.latitude
-                    anotacao.coordinate.longitude = coordenadas.longitude
-                    anotacao.title = localCompleto
-                    //anotacao.subtitle = "Estive aqui"
                     
-                    self.mapa.addAnnotation(anotacao)
+                    self.exibirAnotacao(viagem: self.viagem )
                     
                 }else{
                     

@@ -35,7 +35,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UfV-nL-cSH">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="gIc-ga-wND" kind="show" id="ADw-OX-FrE"/>
+                                <segue destination="gIc-ga-wND" kind="show" identifier="verLocal" id="ADw-OX-FrE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
